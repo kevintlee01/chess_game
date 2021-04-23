@@ -22,15 +22,13 @@ class Board:
         }
 
         self.board = [[" " for _ in range(BOARD_SIZE)] for _ in range(BOARD_SIZE)]
-        self.p1 = Player("WHITE")
-        self.p2 = Player("BLACK")
 
-    def setPiecesToBoard(self):
-        for piece in self.p1.getPiecesAlive():
+    def setPiecesToBoard(self, p1, p2):
+        for piece in p1.getPiecesAlive():
             x, y = piece.getPosition()
             self.board[y][x] = piece
 
-        for piece in self.p2.getPiecesAlive():
+        for piece in p2.getPiecesAlive():
             x, y = piece.getPosition()
             self.board[y][x] = piece
 
@@ -51,6 +49,3 @@ class Board:
             print('\t|_____|_____|_____|_____|_____|_____|_____|_____|')
         print("\n")
 
-board = Board()
-board.setPiecesToBoard()
-board.drawBoard()
