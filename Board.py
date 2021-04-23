@@ -25,7 +25,7 @@ class Board:
         self.p1 = Player("WHITE")
         self.p2 = Player("BLACK")
 
-    def setBoard(self):
+    def setPiecesToBoard(self):
         for piece in self.p1.getPiecesAlive():
             x, y = piece.getPosition()
             self.board[y][x] = piece
@@ -33,6 +33,9 @@ class Board:
         for piece in self.p2.getPiecesAlive():
             x, y = piece.getPosition()
             self.board[y][x] = piece
+
+    def getBoard(self):
+        return self.board
 
     def drawBoard(self):
         print("\n")
@@ -49,5 +52,5 @@ class Board:
         print("\n")
 
 board = Board()
-board.setBoard()
+board.setPiecesToBoard()
 board.drawBoard()
